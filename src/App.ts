@@ -1,9 +1,10 @@
 import express from "express";
 import cors from 'cors'
 import mongoose from 'mongoose'
-import DishController from "./Controllers/DishController";
+import DishesController from "./Controllers/DishesController";
 import config from 'config'
 import Config from './lib/Const'
+import OrdersController from "./Controllers/OrdersController";
 
 const app = express()
 const port = 8080
@@ -29,8 +30,10 @@ mongoose
     )
 
 app.use(cors());
+app.use(express.json());
 
-app.use('/dishes', DishController)
+app.use('/dishes', DishesController)
+app.use('/orders', OrdersController)
 
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
