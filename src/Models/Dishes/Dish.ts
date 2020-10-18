@@ -7,6 +7,7 @@ export type DishType = {
     ingredients?: string[],
     allergens: string[],
     description: string,
+    active: boolean
 } & Document
 
 const dishSchema = new Schema({
@@ -36,6 +37,10 @@ const dishSchema = new Schema({
     },
     description: {
         type: String,
+        required: true
+    },
+    active: {
+        type: Boolean,
         required: true
     }
 })
